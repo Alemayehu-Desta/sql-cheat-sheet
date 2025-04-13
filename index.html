@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Cheat Sheet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" id="theme-link" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    h1 {
+      text-align: center;
+      color: #004080;
+    }
+    .nav {
+      background: #004080;
+      padding: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav a, .toggle-theme {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      background: #0066cc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .nav a:hover, .toggle-theme:hover {
+      background: #0055aa;
+    }
+    .toggle-theme {
+      border: none;
+      cursor: pointer;
+    }
+    .section {
+      background: white;
+      margin: 20px auto;
+      padding: 15px 25px;
+      border-left: 6px solid #007ACC;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+      transition: background 0.3s;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #007ACC;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .badge {
+      font-size: 0.7em;
+      background: #007ACC;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 10px;
+    }
+    .badge.beginner { background: #28a745; }
+    .badge.intermediate { background: #ffc107; }
+    .badge.advanced { background: #dc3545; }
+    .content {
+      display: block;
+    }
+    .collapsed .content {
+      display: none;
+    }
+    pre {
+      background: #eef3f7;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+    code[class*="language-"] {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding: 10px;
+      }
+      .nav a, .toggle-theme {
+        flex: 0 0 auto;
+      }
+      .section {
+        padding: 10px;
+      }
+      .section h2 {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      pre {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>SQL Cheat Sheet</h1>
+  <div class="nav">
+    <a href="#basic">Basic</a>
+    <a href="#filter">Filtering</a>
+    <a href="#sort">Sorting</a>
+    <a href="#agg">Aggregations</a>
+    <a href="#joins">Joins</a>
+    <a href="#subqueries">Subqueries</a>
+    <a href="#sets">Set Ops</a>
+    <a href="#ctes">CTEs</a>
+    <a href="#window">Window</a>
+    <a href="#dates">Dates</a>
+    <a href="#logic">Logic</a>
+    <a href="#views">Views</a>
+    <a href="#triggers">Triggers</a>
+    <a href="#tx">Transactions</a>
+    <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <div id="basic" class="section">
+    <h2 onclick="toggleSection(this)">Basic Commands <span class="badge beginner">Beginner</span></h2>
+    <div class="content">
+      <pre><code class="language-sql">SELECT * FROM employees;
+INSERT INTO employees (name, title) VALUES ('Jane', 'Manager');
+UPDATE employees SET title = 'Director' WHERE name = 'Jane';
+DELETE FROM employees WHERE name = 'Jane';</code></pre>
+    </div>
+  </div>
+
+  <!-- Additional sections go here -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    function toggleTheme() {
+      const themeLink = document.getElementById("theme-link");
+      const isDark = themeLink.getAttribute("href").includes("prism.min.css");
+      themeLink.setAttribute("href", isDark
+        ? "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+        : "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css");
+    }
+
+    function toggleSection(header) {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+    }
+  </script>
+</body>
+</html>
