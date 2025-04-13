@@ -1,6 +1,6 @@
 # 📘 SQL Cheat Sheet Web
 
-An elegant, interactive SQL cheat sheet designed for beginners and intermediate users. This project includes code examples, syntax highlighting, responsive design, and a dark mode toggle — all deployable via GitHub Pages.
+An elegant, interactive SQL cheat sheet designed for beginners and intermediate users. This project includes code examples, syntax highlighting, responsive design, and a dark mode toggle.
 
 ![screenshot](preview.png) <!-- Optional: Add a screenshot for visual preview -->
 
